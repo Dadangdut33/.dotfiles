@@ -1,0 +1,11 @@
+{
+  "reverseScroll": false,
+  "wrapAroundColumns": true,
+  "iconColor": "primary",
+  "combineButtons": false,
+  "compactMode": false,
+  "hideTooltip": true,
+  "splitRightClickAction": "move-column",
+  "splitMiddleClickAction": "open-context-menu",
+  "combinedMiddleClickAction": "open-context-menu"
+}

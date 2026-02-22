@@ -1,0 +1,52 @@
+// ============================================================================
+// STARTUP
+// ============================================================================
+// add & to make it a background task. but not much of a difference through. From arch wiki:
+// these processes are tied to the Niri session, and they will be killed when Niri exits or is suspended. To make a process persist, you may set it to a background task by providing the "&" argument.
+
+// ────────────── MOVED TO SYSTEMD ──────────────
+// polkit stuff: https://yalter.github.io/niri/Important-Software.html#authentication-agent
+// we replace this with environment.d stuff and systemd.
+// MAKE SURE TO INSTALL xdg-desktop-portal xdg-desktop-gnome xdg-desktop-wlr xdg-desktop-kde
+// spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+// spawn-sh-at-startup "/usr/lib/xdg-desktop-portal -r &"
+// spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
+// ────────────────────────────────────────────────────────
+
+// Import XDG_MENU_PREFIX to systemd for Dolphin file associations (must be first)
+spawn-at-startup "bash" "-c" "systemctl --user import-environment XDG_MENU_PREFIX && kbuildsycoca6"
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-sh-at-startup "trash-empty -f 15" // clean 15 days trash
+
+// Scripts
+// spawn-at-startup "~/.local/bin/niri-sidebar" "listen"
+
+// App
+spawn-sh-at-startup "/usr/bin/kwalletd6 &" // kwallet for stuff that uses polkit
+spawn-sh-at-startup "shikane &" // monitor auto
+spawn-sh-at-startup "fcitx5 -d" // for multilanguage keyboard
+spawn-sh-at-startup "xembedsniproxy" // try to fix proton blank window??
+
+spawn-sh-at-startup "sleep 3 && smb4k &" // smb4k to mount network drive
+spawn-sh-at-startup "sleep 3 && netbird-ui &" // netbird
+spawn-sh-at-startup "sleep 3 && elecwhat --enable-features=Vulkan,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebGPU,MiddleClickAutoscroll --ozone-platform=x11 --enable-unsafe-webgpu --use-vulkan &" // whatsapp
+spawn-sh-at-startup "sleep 3 && kdeconnect-indicator &" // kde connect
+spawn-sh-at-startup "sleep 3 && antimicrox &" // mouse / keyboard input with controller
+spawn-sh-at-startup "sleep 5 && OneDriveGUI &" // onedrive sync
+spawn-sh-at-startup "sleep 5 && env GDK_BACKEND=x11 mailspring --password-store=\"kwallet6\" --ozone-platform=x11" // mail client
+spawn-sh-at-startup "sleep 5 && coolercontrol" // control fan speed & light
+
+// Discord
+// spawn-sh-at-startup "sleep 3 && discord --enable-features=Vulkan,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebGPU,MiddleClickAutoscroll --ozone-platform=x11 --enable-unsafe-webgpu --use-vulkan &" // discord
+spawn-sh-at-startup "sleep 3 && vesktop --enable-features=Vulkan,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebGPU,MiddleClickAutoscroll --ozone-platform=x11 --enable-unsafe-webgpu --use-vulkan &" // vesktop
+// spawn-sh-at-startup "sleep 3 && equibop &" // discord
+
+// Setup swayidle
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "600" "qs -c noctalia-shell ipc call lockScreen lock" \
+    "timeout" "1200" "niri msg action power-off-monitors" \
+    "resume" "niri msg action power-on-monitors"
+    // "timeout" "7200" "systemctl suspend" \
+    // "before-sleep" "qs -c noctalia-shell ipc call lockScreen lock"
+
+// The shell that we use (noctalia, is handled with systemd / systemctl)

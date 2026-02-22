@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync account to Google Drive
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/rclone-jobs/gdrive-account.sh

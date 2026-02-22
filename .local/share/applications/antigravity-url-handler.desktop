@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Antigravity - URL Handler
+Comment=Experience liftoff
+GenericName=Text Editor
+Exec=/usr/bin/antigravity --enable-features=Vulkan,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebGPU,MiddleClickAutoscroll --ozone-platform=x11 --enable-unsafe-webgpu --use-vulkan --open-url %U
+Icon=antigravity
+Type=Application
+NoDisplay=true
+StartupNotify=true
+Categories=Utility;TextEditor;Development;IDE;
+MimeType=x-scheme-handler/antigravity;
+Keywords=vscode;

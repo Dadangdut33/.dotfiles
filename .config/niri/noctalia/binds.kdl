@@ -1,0 +1,56 @@
+binds {
+    // -----------------------------------------------
+    // #"Noctalia: Application Launchers"
+    // -----------------------------------------------
+    Mod+D hotkey-overlay-title="Application Launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "windows"; }
+    // Mod+Space hotkey-overlay-title="Search Files" {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:file-search" "toggle";
+    // }
+    
+    // -----------------------------------------------
+    // #"Noctalia: Utility shortcuts"
+    // -----------------------------------------------
+    // Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipper" "togglePanel"; }
+
+    Mod+Alt+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle";
+    }
+    Mod+Shift+Y hotkey-overlay-title="Random Wallpaper" {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "random";
+    }
+    Mod+Period { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+N hotkey-overlay-title="Notification Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+
+    Mod+Ctrl+Shift+R hotkey-overlay-title="Record Screen" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:screen-recorder" "toggle"; }
+
+    // -----------------------------------------------
+    // #"Noctalia: Audio Controls"
+    // -----------------------------------------------
+    XF86AudioRaiseVolume hotkey-overlay-title="Increase volume" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Decrease volume" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute hotkey-overlay-title="Mute volume" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioMicMute hotkey-overlay-title="Mute mic" allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput";
+    }
+
+    Ctrl+Shift+WheelScrollUp hotkey-overlay-title="Increase volume" allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase";
+    }
+    Ctrl+Shift+WheelScrollDown hotkey-overlay-title="Decrease volume" allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease";
+    }
+
+    // -----------------------------------------------
+    // #"Noctalia: Brightness Controls"
+    // -----------------------------------------------
+    XF86MonBrightnessUp hotkey-overlay-title="Increase brightness" allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease";
+    }
+    XF86MonBrightnessDown hotkey-overlay-title="Decrease brightness" allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease";
+    }
+}

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Seanime Denshi
+Comment=Electron-based Desktop client for Seanime
+Icon=/home/dadangdut33/AppImages/.icons/seanime_denshi.png
+TryExec=/home/dadangdut33/AppImages/seanime_denshi.appimage
+Exec=env DESKTOPINTEGRATION=1 /home/dadangdut33/AppImages/seanime_denshi.appimage --no-sandbox --enable-features=Vulkan,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebGPU,MiddleClickAutoscroll --ozone-platform=x11 --enable-unsafe-webgpu --use-vulkan %U
+Terminal=false
+Categories=Entertainment;
+StartupWMClass=Seanime Denshi
+X-AppImage-Version=3.2.5

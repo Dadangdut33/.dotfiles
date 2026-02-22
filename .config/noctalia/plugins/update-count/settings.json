@@ -1,0 +1,8 @@
+{
+  "updateIntervalMinutes": 60,
+  "updateTerminalCommand": "kitty -e",
+  "currentIconName": "world-download",
+  "hideOnZero": true,
+  "customCmdGetNumUpdates": "paru -Qu 2>/dev/null | grep -v \"\\[ignored\\]\" | wc -l",
+  "customCmdDoSystemUpdate": ""
+}

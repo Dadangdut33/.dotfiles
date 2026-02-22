@@ -1,0 +1,76 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
+// ============================================================================
+// Miscc
+// ============================================================================
+// prefer no window decoration
+prefer-no-csd
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+
+recent-windows {
+    binds {
+        Alt+Tab         { next-window scope="all"; }
+        Alt+Shift+Tab   { previous-window scope="all"; }
+        Alt+grave       { next-window scope="workspace"; }
+        Alt+Shift+grave       { previous-window scope="workspace"; }
+        Alt+Ctrl+Tab { next-window filter="app-id"; }
+        Alt+Ctrl+Shift+Tab { previous-window filter="app-id"; }
+    }
+}
+
+// https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous#clipboard 
+clipboard {
+    disable-primary
+}
+
+
+// ----------------------------------
+// Include files
+// ----------------------------------
+include "user-custom/env.kdl"
+include "user-custom/input.kdl"
+include "user-custom/output.kdl"
+include "user-custom/layout.kdl"
+include "user-custom/startup.kdl"
+include "user-custom/animations.kdl"
+include "user-custom/layer-rule.kdl"
+include "user-custom/window-rule.kdl"
+include "user-custom/binds.kdl"
+
+// NOCTALIA
+include "noctalia/layer-rule.kdl"
+include "noctalia/binds.kdl"
+include "./noctalia.kdl"
+include "noctalia/layout.kdl"
+
+include "user-custom/layout-noctalia.kdl"
+
+// DMS
+// include "dms/colors.kdl"
+// include "dms/binds.kdl"
+// include "dms/layout.kdl"
+// include "dms/outputs.kdl"
+// include "dms/cursor.kdl"
+
+// include "user-custom/layout-dms.kdl"
+
+
