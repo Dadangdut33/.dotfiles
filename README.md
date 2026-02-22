@@ -120,8 +120,17 @@ You can easily use this in lutris pre-launch and post-launch option. Example:
 
 
 ```
-# Pre-launch
+# Pre launch
 /path/to/gs-bridge.sh --start endfield
-# Post-launch
+# Post exit
 /path/to/gs-bridge.sh --stop endfield
+```
+
+
+To use this with the discord RPC helper, there is a script in the `bin` directory that can be used easily too. Example:
+```
+# Pre launch
+/home/dadangdut33/.local/bin/gs-bridge+customrpc-pre.sh GFL2
+# Post exit
+/home/dadangdut33/.local/bin/gs-bridge+customrpc-post.sh GFL2
 ```
